@@ -1,0 +1,39 @@
+/*
+styles.css
+External CSS
+*/
+
+div {
+    color: white;
+    background-color: black;
+}
+
+p {
+    color: red;
+}
+
+/*
+Inline CSS example for html
+<body>
+<div style="color: white; background-color: black;">...</div>
+</body>
+*/
+
+/*
+Internal CSS
+<head>
+<style>
+ div {
+     color: white;
+     background-color: black;
+ }
+
+p {
+    color: red;
+}
+</style>
+</head>
+<body>
+ ...
+</body>
+*/
