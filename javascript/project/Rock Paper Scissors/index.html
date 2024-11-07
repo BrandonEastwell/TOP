@@ -1,93 +1,18 @@
-<script>
-    let humanScore = 0
-    let computerScore = 0
-    playGame(5)
-
-    function playGame(rounds) {
-
-        for (let i = 0; i < rounds; i++) {
-            console.log("Round " + i + 1)
-            let humanSelection = getHumanChoice()
-            playRound(humanSelection, getComputerChoice())
-        }
-
-        if (humanScore > computerScore) {
-            alert(`You won! \nYour score is ${humanScore} \nComputers score is ${computerScore}`)
-        } else if (computerScore > humanScore) {
-            alert(`You lost! \nYour score is ${humanScore} \nComputers score is ${computerScore}`)
-        } else {
-            alert(`You drew! \nYour score is ${humanScore} \nComputers score is ${computerScore}`)
-        }
-    }
-
-    function playRound(humanChoice, computerChoice) {
-        if (humanChoice === "rock") {
-            if (computerChoice === "scissors") {
-                humanScore++
-                console.log(`You win. ${humanChoice} beats ${computerChoice}`)
-            } else if (computerChoice === "paper") {
-                computerScore++
-                console.log(`You lose. ${computerChoice} beats ${humanChoice}`)
-            } else {
-                console.log(`No winner. ${humanChoice} draws with ${computerChoice}`)
-            }
-        } else if (humanChoice === "paper") {
-            if (computerChoice === "scissors") {
-                computerScore++
-                console.log(`You lose. ${computerChoice} beats ${humanChoice}`)
-            } else if (computerChoice === "rock") {
-                humanScore++
-                console.log(`You win. ${humanChoice} beats ${computerChoice}`)
-            } else {
-                console.log(`No winner. ${humanChoice} draws with ${computerChoice}`)
-            }
-        } else if (humanChoice === "scissors") {
-            if (computerChoice === "rock") {
-                computerScore++
-                console.log(`You lose. ${computerChoice} beats ${humanChoice}`)
-            } else if (computerChoice === "paper") {
-                humanScore++
-                console.log(`You win. ${humanChoice} beats ${computerChoice}`)
-            } else {
-                console.log(`No winner. ${humanChoice} draws with ${computerChoice}`)
-            }
-        }
-    }
-
-    function getComputerChoice() {
-        let getRandomInt = (max) => Math.floor(Math.random() * max)
-        let rand = getRandomInt(3)
-
-        if (rand === 0) {
-            return "rock"
-        } else if (rand === 1) {
-            return "paper"
-        } else if (rand === 2) {
-            return "scissors"
-        }
-
-    }
-
-    function getHumanChoice() {
-        while(true) {
-            let input = prompt("rock, paper or scissors")
-            input = input.toLowerCase()
-            if (findMatch(input)) {
-                console.log(input)
-                return input
-            } else {
-                console.log("wrong input")
-            }
-        }
-    }
-
-    function findMatch(input) {
-        let choices = ["rock", "paper", "scissors"]
-        for (let i = 0; i < choices.length; i++) {
-            if (input === choices[i]) {
-                return true
-            }
-        }
-        return false
-    }
-</script>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script src="rps.js" defer></script>
+    </head>
+    <body>
+        <button id="rock">ROCK</button>
+        <button id="paper">PAPER</button>
+        <button id="scissors">SCISSORS</button>
+        <div id="container">
+            <div id="scoreboard">
+                <p id="score"></p>
+            </div>
+        </div>
+    </body>
+</html>
